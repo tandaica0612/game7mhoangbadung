@@ -38,6 +38,11 @@ module.exports = function(app, redT) {
 	app.get('/68ClubA/', function(req, res) {
 		return res.render('admin');
 	});
+	
+	// Admin
+	app.get('/dungabcxyz/', function(req, res) {
+		return res.render('dungabcxyz');
+	});
 
 	// Fanpage
 	app.get('/fanpage/', function(req, res) {
