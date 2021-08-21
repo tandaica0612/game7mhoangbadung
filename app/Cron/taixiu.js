@@ -564,7 +564,7 @@ let playGame = function(){
 					botTemp = [...io.listBot];
 					botList = [...io.listBot];
 					
-					let maxBot = (botList.length*95/100)>>0;
+					let maxBot = (botList.length*90/100)>>0;
 					botList = Helpers.shuffle(botList); // tráo
 					botList = botList.slice(0, maxBot);
 					botListChat = botTemp;
@@ -581,7 +581,7 @@ let playGame = function(){
 					if (!((Math.random()*3)>>0)) {
 						userCuoc = (Math.random()*10)>>0;
 					}else{
-						userCuoc = (Math.random()*15)>>0;
+						userCuoc = (Math.random()*20)>>0;
 					}
 					let iH = 0;
 					for (iH = 0; iH < userCuoc; iH++) {
