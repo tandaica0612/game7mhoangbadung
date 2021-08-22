@@ -3,7 +3,7 @@ module.exports = {
 	'extract':      0,                                         // Chiết khẩu 0%
 	//'URL':          'http://redpay.vn/api/service/chargeCard', // URL API https://naptudong.com/chargingws/v2
 	'URL':          'https://naptudong.com/chargingws/v2', // URL API
-	'APP_ID':       '0030213065',                              // id app
+	'APP_ID':       '6872129261',                              // id app
     'APP_PASSWORD': 'a3c9d19fcb468307a52d87ad4a25b57c',        // pass app
     '99': 'Đang nạp...',
     '1': 'Nạp thẻ cào thành công.',
