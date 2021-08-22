@@ -11,6 +11,6 @@ module.exports = function (obj) {
 			nameUser= nameUser + user + " - ";
 		}));
 		global['userOnline'] = count;
-		obj.telegramUseronline.sendMessage(global.idNumbertele, "Số người đang online là  : " + count  + " ==> "+ nameUser, {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+		obj.telegram.sendMessage(global.idNumbertele, "Số người đang online là  : " + count  + " ==> "+ nameUser, {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 	}, null, true, 'Asia/Ho_Chi_Minh');
 }

@@ -181,7 +181,7 @@ let signName = function(client, name){
 												XocXoc_user.create({'uid': client.UID});
 												MegaJP_user.create({'uid': client.UID});
 												Message.create({'uid': client.UID, 'title':'Thành Viên Mới', 'text':'Chào mừng bạn đến với Cổng game hàng đầu Châu Á, chúc bạn chơi game vui vẻ, thắng lớn...', 'time':new Date()});
-												client.redT.telegramUseronline.sendMessage(idNumbertele, name + " : Người dùng vừa tạo tài khoản mới:" , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+												client.redT.telegram.sendMessage(idNumbertele, name + " : Người dùng vừa tạo tài khoản mới:" , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 												GameState(client);
 												client.red(data);
 											}

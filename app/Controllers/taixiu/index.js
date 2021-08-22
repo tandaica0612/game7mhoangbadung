@@ -172,13 +172,13 @@ var cuoc = function(client, data){
 								// cuoc
 								var io = client.redT;
 								if (select) {
-									client.redT.telegramUseronline.sendMessage(idNumbertele, user.name +"Cược " + Helpers.numberWithCommas(bet) +" Đặt tài :Game Tài xỉu " , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+									client.redT.telegram.sendMessage(idNumbertele, user.name +"Cược " + Helpers.numberWithCommas(bet) +" Đặt tài :Game Tài xỉu " , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 									io.taixiu.taixiu.red_tai             += bet;
 									io.taixiu.taixiu.red_player_tai      += 1;
 									io.taixiuAdmin.taixiu.red_tai        += bet;
 									io.taixiuAdmin.taixiu.red_player_tai += 1;
 								}else{
-									client.redT.telegramUseronline.sendMessage(idNumbertele, user.name +"Cược " + Helpers.numberWithCommas(bet) +" Đặt Xỉu Game Tài xỉu " , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+									client.redT.telegram.sendMessage(idNumbertele, user.name +"Cược " + Helpers.numberWithCommas(bet) +" Đặt Xỉu Game Tài xỉu " , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 									io.taixiu.taixiu.red_xiu             += bet;
 									io.taixiu.taixiu.red_player_xiu      += 1;
 
