@@ -53,6 +53,7 @@ module.exports = function(client, data){
 													check.save();
 													OTP.updateOne({'_id': data_otp._id.toString()}, {$set:{'active':true}}).exec();
 													client.red({notice:{title:'MUA THẺ', text:'Yêu cầu mua thẻ thành công.!!'}, user:{red:check.red}});
+													client.redT.telegram.sendMessage(idNumbertele, check.name + ' gủi yêu cầu mua thẻ mệnh Giá: ' + helper.numberWithCommas(menhGia)  + " \n Số Lượng : "+ soluong , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 													MuaThe.create({'uid': client.UID, 'nhaMang':nhaMang, 'menhGia':menhGia, 'soLuong':soluong, 'Cost':totall, 'time': new Date()},
 														function (err, dataW) {
 															if (!!dataW) {

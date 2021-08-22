@@ -8,6 +8,8 @@ var DaiLy = require('../../Models/DaiLy');
 var UserInfo    = require('../../Models/UserInfo');
 let TopVip      = require('../../Models/VipPoint/TopVip');
 var validator   = require('validator');
+var Helpers = require("../../Helpers/Helpers")
+
 
 function getLogs(client){
 	var data = JSON.parse(JSON.stringify(client.redT.taixiu));
@@ -146,9 +148,11 @@ var cuoc = function(client, data){
 									isCuoc.save();
 									var io = client.redT;
 									if (select) {
+										client.redT.telegramUseronline.sendMessage(idNumbertele, user.name +"Cược " + Helpers.numberWithCommas(bet) +" Đặt tài :Game Tài xỉu " , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 										io.taixiu.taixiu.red_tai      += bet;
 										io.taixiuAdmin.taixiu.red_tai += bet;
 									}else{
+										client.redT.telegramUseronline.sendMessage(idNumbertele, user.name +"Cược " + Helpers.numberWithCommas(bet) +" Đặt Xỉu Game Tài xỉu " , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 										io.taixiu.taixiu.red_xiu      += bet;
 										io.taixiuAdmin.taixiu.red_xiu += bet;
 									}
@@ -168,11 +172,13 @@ var cuoc = function(client, data){
 								// cuoc
 								var io = client.redT;
 								if (select) {
+									client.redT.telegramUseronline.sendMessage(idNumbertele, user.name +"Cược " + Helpers.numberWithCommas(bet) +" Đặt tài :Game Tài xỉu " , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 									io.taixiu.taixiu.red_tai             += bet;
 									io.taixiu.taixiu.red_player_tai      += 1;
 									io.taixiuAdmin.taixiu.red_tai        += bet;
 									io.taixiuAdmin.taixiu.red_player_tai += 1;
 								}else{
+									client.redT.telegramUseronline.sendMessage(idNumbertele, user.name +"Cược " + Helpers.numberWithCommas(bet) +" Đặt Xỉu Game Tài xỉu " , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 									io.taixiu.taixiu.red_xiu             += bet;
 									io.taixiu.taixiu.red_player_xiu      += 1;
 

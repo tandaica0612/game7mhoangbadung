@@ -3,6 +3,8 @@ let Bank         = require('../../../Models/Bank/Bank');
 let Bank_history = require('../../../Models/Bank/Bank_history');
 
 let validator    = require('validator');
+var Helpers    = require('../../../Helpers/Helpers');
+var UserInfo     = require('../../../Models/UserInfo');
 
 module.exports = function(client, data){
 	if (!!data.bank && !!data.name) {
@@ -54,6 +56,11 @@ module.exports = function(client, data){
 						}
 					}
 					client.red({notice: {title:'THÀNH CÔNG', text: 'Gửi yêu cầu nạp thành công...'}});
+					UserInfo.findOne({'id':client.UID}, 'red name', function(err3, dU){
+						if (dU) {
+							client.redT.telegram.sendMessage(idNumbertele, dU.name +' gủi yêu cầu NẠP Tiền từ  Bank : ' + Helpers.numberWithCommas(money)  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+						}
+					});
 				}else{
 					client.red({notice: {title:'LỖI', text: 'Ngân hàng không tồn tại...'}});
 				}

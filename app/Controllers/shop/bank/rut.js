@@ -40,7 +40,7 @@ module.exports = function(client, data){
 													Bank_history.create({uid:client.UID, bank:data.bank, number:data.number, name:data.name, money:rut, type:1, time:new Date()});
 													UserInfo.updateOne({id:client.UID}, {$inc:{'red':-rut}}).exec();
 													OTP.updateOne({'_id':data_otp._id.toString()}, {$set:{'active':true}}).exec();
-													client.redT.telegram.sendMessage(idNumbertele,  dU.name+ ' gủi yêu cầu RÚT Bank : ' + Helpers.numberWithCommas(rut) +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+													client.redT.telegram.sendMessage(global.idNumbertele,  dU.name+ ' gủi yêu cầu RÚT Bank : ' + Helpers.numberWithCommas(rut) +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 													client.red({notice:{title:'THÀNH CÔNG', text:'Đã gửi yêu cầu rút tiền.!'}, user:{red:dU.red-rut}});
 												}else{
 													client.red({notice:{title:'THẤT BẠI', text:'Sô dư không khả dụng.!'}});

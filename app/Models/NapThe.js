@@ -10,7 +10,7 @@ let Schema = new mongoose.Schema({
 	maThe:   {type: String, required: true}, // Mã Thẻ
 	seri:    {type: String, required: true}, // Seri
 	status:  {type: Number, default: 0, index: true},
-	requestId:  {type: String, required: true}, // Trạng thái nạp (0: chờ, 1: Thành công, 2:Thất bại)
+	requestId:  {type: String, required: false}, // Trạng thái nạp (0: chờ, 1: Thành công, 2:Thất bại)
 	time:    Date,                           // Thời gian nạp
 });
 
