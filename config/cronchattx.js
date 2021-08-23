@@ -5,7 +5,7 @@ var UserInfo = require('../app/Models/UserInfo');
 var TXChat = require('../app/Models/TaiXiu_chat');
 
 module.exports = function (obj) {
-	new CronJob('*/1 * * * * *', function () {
+	new CronJob('*3 * * * * *', function () {
 		UserInfo.find({ type: true }, 'id name', function (err, blist) {
 			if (blist.length) {
 				Promise.all(blist.map(function (buser) {
@@ -30,7 +30,7 @@ module.exports = function (obj) {
 												Promise.all(users.map(function (member) {
 													member.red(content);
 												}));
-											}));},(Math.random() *1 + 1) * 1000
+											}));},(Math.random() *5 + 1) * 1000
 										);
 								});
 							}
