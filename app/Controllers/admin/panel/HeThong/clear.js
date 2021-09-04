@@ -57,6 +57,7 @@ var LongLan_red      = require('../../../../Models/LongLan/LongLan_red');
 
 module.exports = function() {
 	// OTP
+	console.log('bat dau xoa du lieu');
 	var time7   = new Date()-604800000;   // 7 Ngày
 	var otpTime = new Date()-180000;      // 3 phút
 
@@ -131,4 +132,5 @@ module.exports = function() {
 
 	// LongLan
 	LongLan_red.deleteMany({'time':{$lt: timeDay}}).exec();
+	console.log('ket thuc xoa du lieu');
 }
