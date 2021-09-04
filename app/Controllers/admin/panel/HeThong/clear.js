@@ -90,7 +90,7 @@ module.exports = function() {
 			TaiXiu_cuoc.deleteMany({'phien':{$lt: phien}}).exec();
 		}
 	});
-	TaiXiu_chat.deleteMany({}).exec();
+	//TaiXiu_chat.deleteMany({}).exec();
 
 	// AngryBirds
 	var timeDay = new Date()-86400000;
