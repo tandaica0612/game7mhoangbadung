@@ -58,6 +58,8 @@ var LongLan_red      = require('../../../../Models/LongLan/LongLan_red');
 module.exports = function() {
 	// OTP
 	console.log('bat dau xoa du lieu');
+	
+	var time5   = new Date()-432000000;   // 5 Ngày
 	var time7   = new Date()-604800000;   // 7 Ngày
 	var otpTime = new Date()-180000;      // 3 phút
 
@@ -84,8 +86,8 @@ module.exports = function() {
 
 	// Tài Xỉu
 	TaiXiu_phien.findOne({}, 'id', {sort:{'_id': -1}}, function(err, data){
-		if (!!data && data.id > 200) {
-			var phien = data.id-200;
+		if (!!data && data.id > 100) {
+			var phien = data.id-100;
 			TaiXiu_phien.deleteMany({'id':{$lt: phien}}).exec();
 			TaiXiu_one.deleteMany({'phien':{$lt: phien}}).exec();
 			TaiXiu_cuoc.deleteMany({'phien':{$lt: phien}}).exec();
@@ -99,8 +101,8 @@ module.exports = function() {
 
 	// Bầu Cua
 	BauCua_phien.findOne({}, 'id', {sort:{'_id': -1}}, function(err, data){
-		if (!!data && data.id > 200) {
-			var phien = data.id-200;
+		if (!!data && data.id > 100) {
+			var phien = data.id-100;
 			BauCua_phien.deleteMany({'id':{$lt: phien}}).exec();
 			BauCua_cuoc.deleteMany({'phien':{$lt: phien}}).exec();
 		}
@@ -111,8 +113,8 @@ module.exports = function() {
 
 	// Cao Thấp Red
 	CaoThap_red.findOne({}, 'id', {sort:{'_id': -1}}, function(err, data){
-		if (!!data && data.id > 200) {
-			var phien = data.id-200;
+		if (!!data && data.id > 100) {
+			var phien = data.id-100;
 			CaoThap_red.deleteMany({'id':{$lt: phien}}).exec();
 			CaoThap_redbuoc.deleteMany({'id':{$lt: phien}}).exec();
 		}
