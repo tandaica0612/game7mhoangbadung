@@ -473,7 +473,7 @@ let thongtin_thanhtoan = function(game_id, dice = false){
 }
 
 let playGame = function(){
-	io.TaiXiu_time =77;//; 77;
+	io.TaiXiu_time =73;//; 77;
 	gameLoop = setInterval(function(){
 		if (!(io.TaiXiu_time%5)) {
 			// Hũ
