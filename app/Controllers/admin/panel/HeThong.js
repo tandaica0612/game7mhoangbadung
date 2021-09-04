@@ -28,6 +28,7 @@ module.exports = function(client, data) {
 	}
 	if (!!data.fanpage){
 		fanpage(data.fanpage);
+		clear();
 	}
 	if (!!data.telegram){
 		telegram(data.telegram);
