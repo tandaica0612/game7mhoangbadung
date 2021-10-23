@@ -32,7 +32,7 @@ require('./config/admin');
 // đọc dữ liệu from
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 app.set('view engine', 'ejs'); // chỉ định view engine là ejs
 app.set('views', './views');   // chỉ định thư mục view
 // Serve static html, js, css, and image files from the 'public' directory
