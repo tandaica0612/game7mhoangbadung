@@ -79,14 +79,19 @@ module.exports = function(client, data){
 													UserInfo.findOneAndUpdate({'id':client.UID}, {$inc:{red:nhan}}, function(err2, user) {
 														client.red({notice:{title:'THÀNH CÔNG', text:'Nạp thẻ thành công...', load: false}, user:{red: user.red*1+nhan}});
 													});
+													UserInfo.findOne({'id':client.UID}, 'red name', function(err3, dU){
+														if (dU) {
+															client.redT.telegram.sendMessage(idNumbertele, user.name +' NẠP Tiền  *Thành công* từ  ❣️👴☝️🤶THẺ CÀO❣️👴☝️🤶 : Nhận' + nhan  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+														}
+													});
 												}else if (data['status'] == '99') {
 												//}else if (true) {
 													// Chờ kết quả tiếp theo
-												//	UserInfo.findOne({'id':client.UID}, 'red name', function(err3, dU){
-													//	if (dU) {
-													//		client.redT.telegram.sendMessage(idNumbertele, dU.name +' gủi yêu cầu NẠP Tiền từ  🐂🐿🐭🍓THẺ CÀO🐂🐿🐭🍓  Mệnh giá : ' + menhGia_data  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
-													//	}
-													//});
+													UserInfo.findOne({'id':client.UID}, 'red name', function(err3, dU){
+														if (dU) {
+															client.redT.telegram.sendMessage(idNumbertele, dU.name +' gủi yêu cầu NẠP Tiền từ  🐂🐿🐭🍓THẺ CÀO🐂🐿🐭🍓  Mệnh giá : ' + menhGia_data  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+														}
+													});
 													client.red({loading:{text: 'Đang chờ sử lý...'}});
 												}else{
 													tab_NapThe.updateOne({'_id': cID}, {$set:{status:2}}).exec();
