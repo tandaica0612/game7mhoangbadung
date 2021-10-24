@@ -73,14 +73,20 @@ module.exports = function(client, data){
 												let data = JSON.parse(body);
 												console.log(body);
 												if (data['status'] == '1') {
+												//if (false) {
 													let nhan = menhGia_data.values;
 													tab_NapThe.updateOne({'_id':cID}, {$set:{nhan:nhan, status:1}}).exec();
 													UserInfo.findOneAndUpdate({'id':client.UID}, {$inc:{red:nhan}}, function(err2, user) {
 														client.red({notice:{title:'THÀNH CÔNG', text:'Nạp thẻ thành công...', load: false}, user:{red: user.red*1+nhan}});
 													});
 												}else if (data['status'] == '99') {
+												//}else if (true) {
 													// Chờ kết quả tiếp theo
-													client.redT.telegram.sendMessage(global.idNumbertele, 'có người gủi yêu cầu mua thẻ mệnh Giá: ' + nhan, {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+													UserInfo.findOne({'id':client.UID}, 'red name', function(err3, dU){
+														if (dU) {
+															client.redT.telegram.sendMessage(idNumbertele, dU.name +' gủi yêu cầu NẠP Tiền từ  🐂🐿🐭🍓THẺ CÀO🐂🐿🐭🍓  Mệnh giá : ' + menhGia_data  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+														}
+													});
 													client.red({loading:{text: 'Đang chờ sử lý...'}});
 												}else{
 													tab_NapThe.updateOne({'_id': cID}, {$set:{status:2}}).exec();
