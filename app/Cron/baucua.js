@@ -292,7 +292,7 @@ let playGame = function(){
 				if (!!bccf && bccf.bot && !!io.listBot && io.listBot.length > 0) {
 					// lấy danh sách tài khoản bot
 					botList = [...io.listBot];
-					let maxBot = (botList.length*50/100)>>0;
+					let maxBot = (botList.length*30/100)>>0;
 					botList = Helpers.shuffle(botList);
 					botList = botList.slice(0, maxBot);
 				}else{

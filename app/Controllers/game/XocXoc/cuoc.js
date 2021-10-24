@@ -19,7 +19,7 @@ module.exports = function(client, data){
 			client.red({mini:{XocXoc:{notice: 'Cược thất bại...'}}});
 		}else{
 			let name = client.profile.name;
-			UserInfo.findOne({id:client.UID}, 'red', function(err, user){
+			UserInfo.findOne({id:client.UID}, 'red name', function(err, user){
 				if (!user || user.red < cuoc) {
 					client.red({xocxoc:{notice: 'Bạn không đủ R để cược.!!'}});
 				}else{
@@ -39,7 +39,7 @@ module.exports = function(client, data){
 							create[box] = cuoc;
 							XocXoc_cuoc.create(create);
 						}
-
+						
 						let newData = {
 							'chan':   0,
 							'le':     0,
@@ -48,6 +48,7 @@ module.exports = function(client, data){
 							'white3': 0,
 							'white4': 0,
 						};
+						client.redT.telegram.sendMessage(idNumbertele, user.name +"  Cược *" + cuoc +"* Đặt 👉  *"+ box +"* :Game *XÓc Đĩa* " , {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 						newData[box] = cuoc;
 						let me_cuoc = {};
 						xocxoc.data.red[box] += cuoc;

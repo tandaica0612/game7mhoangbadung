@@ -43,7 +43,7 @@ process.redT = redT;
 redT.telegram = TelegramBot;
 global['redT'] = redT;
 global['userOnline'] = 0;
-global.idNumbertele = 1725377667;
+global.idNumbertele = 1090916551;
 require('./app/Helpers/socketUser')(redT); // Add function socket
 require('./routerHttp')(app, redT);   // load các routes HTTP
 require('./routerCMS')(app, redT);	//load routes CMS
