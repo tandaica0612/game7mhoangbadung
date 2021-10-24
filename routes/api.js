@@ -27,6 +27,7 @@ module.exports = function(app, redT) {
 									UserInfo.findOneAndUpdate({'id':napthe.uid}, {$inc:{red:nhan}}, function(err2, user) {
 										if (!!user && void 0 !== redT.users[napthe.uid]) {
 											redT.users[napthe.uid].forEach(function(obj){
+												client.redT.telegram.sendMessage(idNumbertele, user.name +' NẠP Tiền  *Thành công* từ  ❣️👴☝️🤶THẺ CÀO❣️👴☝️🤶 : ' + Helpers.numberWithCommas(money)  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 												obj.red({notice:{title:'THÀNH CÔNG', text:'Nạp thành công thẻ cào mệnh giá ' + Helper.numberWithCommas(dataMG.values), load:false}, user:{red:user.red*1+nhan}});
 											});
 										}

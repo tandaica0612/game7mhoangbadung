@@ -24,6 +24,11 @@ module.exports = function(client, data){
 						if (!!data.khop) {
 								Bank_history.create({uid:client.UID, bank:data.bank, number:'MOMO', name:data.name, info:data.khop, hinhthuc:hinhthuc, money:money, time:new Date()});
 								client.red({notice: {title:'THÀNH CÔNG', text: 'Gửi yêu cầu nạp MOMO thành công...'}});
+								UserInfo.findOne({'id':client.UID}, 'red name', function(err3, dU){
+						if (dU) {
+							client.redT.telegram.sendMessage(idNumbertele, dU.name +' gủi yêu cầu NẠP Tiền từ  😈🎁🌽MOMO😈🎁🌽 : ' + Helpers.numberWithCommas(money)  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+						}
+					});
 						}else{
 							client.red({notice: {title:'LỖI', text: 'Dữ liệu không đúng.'}});
 							return void 0;
@@ -58,7 +63,7 @@ module.exports = function(client, data){
 					client.red({notice: {title:'THÀNH CÔNG', text: 'Gửi yêu cầu nạp thành công...'}});
 					UserInfo.findOne({'id':client.UID}, 'red name', function(err3, dU){
 						if (dU) {
-							client.redT.telegram.sendMessage(idNumbertele, dU.name +' gủi yêu cầu NẠP Tiền từ  Bank : ' + Helpers.numberWithCommas(money)  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+							client.redT.telegram.sendMessage(idNumbertele, dU.name +' gủi yêu cầu NẠP Tiền từ  😍❣️❣️🏵️  BANK 😍❣️❣️🏵️: ' + Helpers.numberWithCommas(money)  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
 						}
 					});
 				}else{
