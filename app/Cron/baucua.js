@@ -301,7 +301,7 @@ let playGame = function(){
 			}else{
 				thongtin_thanhtoan();
 				if (!!botList.length && io.BauCua_time > 2) {
-					let userCuoc = (Math.random()*10)>>0;
+					let userCuoc = (Math.random()*7)>>0;
 					for (let i = 0; i < userCuoc; i++) {
 						let dataT = botList[i];
 						if (!!dataT) {
