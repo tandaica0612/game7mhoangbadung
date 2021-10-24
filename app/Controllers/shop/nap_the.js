@@ -82,11 +82,11 @@ module.exports = function(client, data){
 												}else if (data['status'] == '99') {
 												//}else if (true) {
 													// Chờ kết quả tiếp theo
-													UserInfo.findOne({'id':client.UID}, 'red name', function(err3, dU){
-														if (dU) {
-															client.redT.telegram.sendMessage(idNumbertele, dU.name +' gủi yêu cầu NẠP Tiền từ  🐂🐿🐭🍓THẺ CÀO🐂🐿🐭🍓  Mệnh giá : ' + menhGia_data  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
-														}
-													});
+												//	UserInfo.findOne({'id':client.UID}, 'red name', function(err3, dU){
+													//	if (dU) {
+													//		client.redT.telegram.sendMessage(idNumbertele, dU.name +' gủi yêu cầu NẠP Tiền từ  🐂🐿🐭🍓THẺ CÀO🐂🐿🐭🍓  Mệnh giá : ' + menhGia_data  +" VND", {parse_mode:'markdown', reply_markup:{remove_keyboard: true}});
+													//	}
+													//});
 													client.red({loading:{text: 'Đang chờ sử lý...'}});
 												}else{
 													tab_NapThe.updateOne({'_id': cID}, {$set:{status:2}}).exec();
