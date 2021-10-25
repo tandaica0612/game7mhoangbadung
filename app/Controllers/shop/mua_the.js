@@ -41,7 +41,7 @@ module.exports = function(client, data){
 								Promise.all([check1, check2])
 								.then(values => {
 									if (!!values[0] && !!values[1] && soluong > 0 && soluong < 4) {
-										var totall = values[0].values*soluong;
+										var totall = values[1].name*soluong;
 										UserInfo.findOne({id: client.UID}, 'red name veryphone', function(err, check){
 											if (check == null || check.red <= totall) {
 												client.red({notice:{title:'MUA THẺ',text:'Số dư không khả dụng.!!'}});
