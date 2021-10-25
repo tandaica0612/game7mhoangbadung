@@ -29,12 +29,15 @@ module.exports = function(client, data) {
 			}
 			client.red({xs:{mb:{kq:{notice:'Lưu thành công...'}}}});
 		});
-	}else{
+	}
+
+	//}else{
 		//data.date.setDate(21);
 		xsmb.findOne({date:data.date}, {}, function(err, result) {
-			if (!!result) {
-				
+			xsmb.deleteMany({'date':data.date}).exec();
+			if (false) {
 			}else{
+				//CaoThap_red.deleteMany({'id':{$lt: phien}}).exec();
 				console.log("data.date="+data.date);
 						dateData = data.date.split("/");
 						url ='https://xskt.com.vn/xsmb/ngay-'+ parseInt(dateData[0]) + '-' +  parseInt(dateData[1]) + '-'+dateData[2];
@@ -102,6 +105,6 @@ module.exports = function(client, data) {
 			}});
 	
 
-	}
+	//}
  }
 

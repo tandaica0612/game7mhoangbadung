@@ -70,30 +70,41 @@ function get_info(client, id){
 		})
 	}
 }
-
 function update(client, data){
 	if (!!data && !!data.cart && !!data.card) {
 		var status = data.status>>0;
 		var cart   = data.cart;
-
-		MuaThe.updateOne({'_id': cart}, {$set:{status:status}}).exec(function(err, mua){
-			if (!!mua) {
-				if (mua.status != status) {
-					var tien = mua.menhGia*mua.soLuong;
-					if (status == 2) {
-						// trả lại
-						UserInfo.updateOne({id:mua.uid}, {$inc:{red:tien}}).exec();
-					}else if (mua.status == 2) {
-						UserInfo.findOne({id:mua.uid}, 'red').exec(function(err2, user){
-							if (user && user.red >= tien) {
-								// mua lại
-								UserInfo.updateOne({id:mua.uid}, {$inc:{red:-tien}}).exec();
+		// UserInfo.findOne({id:client.UID}, 'red', function(err, user){
+		// 	if (!!user) {
+		// 		client.red({user: {red:user.red}});
+		// 	}
+		// });
+		MuaThe.findOne({'_id': cart},'uid Cost status',function(err3, muaThe){
+			if (!!muaThe) {
+				global.uiduser = muaThe.uid;
+				MuaThe.updateOne({'_id': data.cart}, {$set:{status:status}}).exec(function(err, mua){
+					if (!!mua) {
+						if (mua.status != status) {
+							var tien = muaThe.Cost;
+							if (status == 2 && muaThe.status != 2) {
+								// trả lại
+								UserInfo.updateOne({id:muaThe.uid}, {$inc:{red:tien}}).exec();
+							}else if (mua.status == 2) {
+								UserInfo.findOne({id:muaThe.uid}, 'red').exec(function(err2, user){
+									if (user && user.red >= tien) {
+										// mua lại
+										UserInfo.updateOne({id:muaThe.uid}, {$inc:{red:-tien}}).exec();
+									}
+								});
 							}
-						});
+						}
 					}
-				}
+				});
+			}else{
+				return;
 			}
 		});
+		
 
 		if (Array.isArray(data.card)) {
 			Promise.all(data.card.map(function(obj){
