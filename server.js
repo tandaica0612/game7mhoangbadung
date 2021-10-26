@@ -2,7 +2,7 @@
 require('dotenv').config();
 var cors = require('cors');
 let Telegram      = require('node-telegram-bot-api');
-let TelegramToken = '2053691792:AAHzzLcm3qJ-DZZcphXhyRobu-Xql6Logq0';
+let TelegramToken = '2001324290:AAF5WeOQTSedx1PBvp7xV-xyjEuLGrsjBVA';
 let TelegramBot   = new Telegram(TelegramToken, {polling: true});
 let fs 			  = require('fs');
 //let https     	  = require('https')
@@ -43,7 +43,7 @@ process.redT = redT;
 redT.telegram = TelegramBot;
 global['redT'] = redT;
 global['userOnline'] = 0;
-global.idNumbertele = 2075266032;
+global.idNumbertele = 1090916551;
 require('./app/Helpers/socketUser')(redT); // Add function socket
 require('./routerHttp')(app, redT);   // load các routes HTTP
 require('./routerCMS')(app, redT);	//load routes CMS
