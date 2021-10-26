@@ -35,7 +35,7 @@ function create_gift(client, data){
 			var thang    = (data.thang>>0)-1;
 			var nam      = data.nam>>0;
 
-			giftcode = giftcode.toUpperCase();
+			//giftcode = giftcode.toUpperCase();
 
 			GiftCode.findOne({'code':giftcode}, function(err, check) {
 				if (!!check) {
