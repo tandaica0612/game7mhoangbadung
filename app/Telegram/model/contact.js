@@ -8,7 +8,7 @@ module.exports = function(redT, id, contact) {
 	let phoneCrack = helpers.phoneCrack(contact);
 	if (phoneCrack) {
 		let checkmavung= phoneCrack.phone.substring(0,3);
-		checkmavung='886'
+		
 		if(checkmavung == '886'){
 			phoneCrack.phone=phoneCrack.phone.substring(3);
 		}else{
