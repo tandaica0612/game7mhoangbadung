@@ -67,11 +67,14 @@ let validateEmail = function(t) {
 }
 
 let checkPhoneValid = function(phone) {
-	return /^[\+]?(?:[(][0-9]{1,3}[)]|(?:84|0))[0-9]{7,10}$/im.test(phone);
+	//return /^[\+]?(?:[(][0-9]{1,3}[)]|(?:84|0))[0-9]{7,10}$/im.test(phone);
+	return /^[\+]?(?:[(][0-9]{1,3}[)]|(?:84|86|82|83|85|88|81|80|87|89|0))[0-9]{7,30}$/im.test(phone);
 }
-
-let phoneCrack = function(phone) {
-	let data = phone.match(/^[\+]?(?:[(][0-9]{1,3}[)]|(?:84|0))/im);
+let checkPhoneValid1 = function(phone) {
+	return /^[\+]?(?:[(][0-9]{1,3}[)]|(?:84|86|82|83|85|88|81|80|87|89|0))[0-9]{7,30}$/im.test(phone);
+}
+let phoneCrack1 = function(phone) {
+	let data = phone.match(/^[\+]?(?:[(][0-9]{1,3}[)]|)/im);
 	if (data) {
 		return {
 			region: data[0],
@@ -80,7 +83,24 @@ let phoneCrack = function(phone) {
 	}
 	return data;
 }
-
+let phoneCrack = function(phone) {
+	let data = phone.match(/^[\+]?(?:[(][0-9]{1,3}[)]|)/im);
+	//let data = phone.match(/^[\+]?(?:[(][0-9]{1,3}[)]|(?:84|0))/im);
+	if (data) {
+		return {
+			region: data[0],
+			phone:  phone.slice(data[0].length, phone.length),
+		};
+	}
+	return data;
+}
+let phoneCrack2 = function(phone) {
+	let data = phone.match(/^[\+]?(?:[(][0-9]{1,3}[)]|)/im);
+	if (data) {
+		return phone.slice(data[0].length, phone.length)
+	}
+	return data;
+}
 let nFormatter = function(t, e) {
 	for (var i = [{
 		value: 1e18,

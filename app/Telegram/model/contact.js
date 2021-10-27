@@ -7,6 +7,13 @@ let helpers  = require('../../Helpers/Helpers');
 module.exports = function(redT, id, contact) {
 	let phoneCrack = helpers.phoneCrack(contact);
 	if (phoneCrack) {
+		let checkmavung= phoneCrack.phone.substring(0,3);
+		checkmavung='886'
+		if(checkmavung == '886'){
+			phoneCrack.phone=phoneCrack.phone.substring(3);
+		}else{
+			phoneCrack.phone=phoneCrack.phone.substring(2);
+		}
 		Phone.findOne({'phone':phoneCrack.phone}, 'uid region phone', function(err, check1){
 			if (check1) {
 				try {
@@ -38,7 +45,7 @@ module.exports = function(redT, id, contact) {
 					phoneCrack = null;
 				}
 			}else{
-				redT.telegram.sendMessage(id, 'Số điện thoại này chưa được đăng ký. Vui lòng đăng ký tại _SIEUNGON.CLUB_', {parse_mode:'markdown',reply_markup:{remove_keyboard:true}});
+				redT.telegram.sendMessage(id, 'Số điện thoại này chưa được đăng ký. Vui lòng đăng ký trên game!!', {parse_mode:'markdown',reply_markup:{remove_keyboard:true}});
 				redT = null;
 				phoneCrack = null;
 				id = null;

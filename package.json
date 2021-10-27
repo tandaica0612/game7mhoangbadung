@@ -24,6 +24,7 @@
 		"is-mobile": "^2.1.0",
 		"jsdom": "^16.4.0",
 		"jsonwebtoken": "^8.5.1",
+		"libphonenumber-js": "^1.9.39",
 		"mongoose": "^5.7.1",
 		"mongoose-auto-increment-reworked": "^1.2.1",
 		"mongoose-long": "^0.2.1",
