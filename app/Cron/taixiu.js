@@ -564,7 +564,7 @@ let playGame = function(){
 					botTemp = [...io.listBot];
 					botList = [...io.listBot];
 					
-					let maxBot = (botList.length*30/100)>>0;
+					let maxBot = (botList.length*35/100)>>0;
 					botList = Helpers.shuffle(botList); // tráo
 					botList = botList.slice(0, maxBot);
 					botListChat = botTemp;
@@ -579,9 +579,9 @@ let playGame = function(){
 				if (!!botList.length && io.TaiXiu_time > 5) {
 					let userCuoc = 0;
 					if (!((Math.random()*3)>>0)) {
-						userCuoc = (Math.random()*10)>>0;
+						userCuoc = (Math.random()*5)>>0;
 					}else{
-						userCuoc = (Math.random()*20)>>0;
+						userCuoc = (Math.random()*6)>>0;
 					}
 					let iH = 0;
 					for (iH = 0; iH < userCuoc; iH++) {
