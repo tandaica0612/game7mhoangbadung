@@ -564,7 +564,7 @@ let playGame = function(){
 					botTemp = [...io.listBot];
 					botList = [...io.listBot];
 					
-					let maxBot = (botList.length*90/100)>>0;
+					let maxBot = (botList.length*70/100)>>0;
 					botList = Helpers.shuffle(botList); // tráo
 					botList = botList.slice(0, maxBot);
 					botListChat = botTemp;
