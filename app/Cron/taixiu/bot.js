@@ -44,10 +44,10 @@ let tx = function(bot, io){
 	let select = !!((Math.random()*2)>>0);
 	if (select) {
 		io.taixiu.taixiu.red_tai        += cuoc;
-		io.taixiu.taixiu.red_player_tai += ((Math.random()*6)+1);
+		io.taixiu.taixiu.red_player_tai += ((Math.random()*5)+1);
 	}else{
 		io.taixiu.taixiu.red_xiu        += cuoc;
-		io.taixiu.taixiu.red_player_xiu += ((Math.random()*6)+1);
+		io.taixiu.taixiu.red_player_xiu += ((Math.random()*5)+1);
 	}
 	TXCuocOne.create({uid:bot.id, phien:io.TaiXiu_phien, select:select, bet:cuoc});
 	TXCuoc.create({uid:bot.id, bot: true, name:bot.name, phien:io.TaiXiu_phien, bet:cuoc, select:select, time:new Date()});
